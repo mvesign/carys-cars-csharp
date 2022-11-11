@@ -7,7 +7,7 @@ public class PricingEngineTest
     [Fact]
     public void calculatePrice_charged_per_minute()
     {
-        var pricingEngine = new PricingEngine();
+        var pricingEngine = new PricingEngineMvp();
 
         var duration = Duration.ofMinutes(1);
         var pricePerMinute = Money.Euro(0.30);

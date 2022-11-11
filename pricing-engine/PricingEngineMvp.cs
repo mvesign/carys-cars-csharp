@@ -2,7 +2,7 @@ using NodaMoney;
 
 namespace pricing_engine;
 
-public class PricingEngine
+public class PricingEngineMvp
 {
     public Money CalculatePrice(Duration duration, Money pricePerMinute)
     {
