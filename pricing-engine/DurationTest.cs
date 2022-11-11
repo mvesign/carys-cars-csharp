@@ -9,7 +9,7 @@ public class DurationTest
         {
             const int lessThan1 = 0;
 
-            return Duration.ofMinutes(lessThan1);
+            return Duration.OfMinutes(lessThan1);
         });
 
         Assert.Equal("Sorry, Duration should be at least one minute.", thrown.Message);
@@ -18,7 +18,7 @@ public class DurationTest
     [Fact]
     public void Converts_from_and_to_text()
     {
-        var someDuration = Duration.ofMinutes(3);
+        var someDuration = Duration.OfMinutes(3);
 
         Assert.Equal(someDuration, Duration.FromString(someDuration.ToString()));
     }

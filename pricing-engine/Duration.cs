@@ -9,7 +9,7 @@ public class Duration
         this.minutes = minutes;
     }
 
-    public static Duration ofMinutes(int minutes)
+    public static Duration OfMinutes(int minutes)
     {
         if (minutes < 1)
         {

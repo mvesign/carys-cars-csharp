@@ -9,7 +9,7 @@ public class PricingEngineTest
     {
         var pricingEngine = new PricingEngineMvp();
 
-        var duration = Duration.ofMinutes(1);
+        var duration = Duration.OfMinutes(1);
         var pricePerMinute = Money.Euro(0.30);
         var actual = pricingEngine.CalculatePrice(duration, pricePerMinute);
 
