@@ -17,11 +17,3 @@ public class PricingEngineTest
         Assert.Equal(expected, actual);
     }
 }
-
-public class PricingEngine
-{
-    public Money calculatePrice(Duration duration, Money pricePerMinute)
-    {
-        return Int32.Parse(duration.ToString()) * pricePerMinute;
-    }
-}
