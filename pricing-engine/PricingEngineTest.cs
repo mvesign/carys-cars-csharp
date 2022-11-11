@@ -20,19 +20,38 @@ public class PricingEngineTest
 
 public class Duration
 {
-    public static Duration ofMinutes(int minutes)
+    private int minutes;
+
+    private Duration(int minutes)
     {
-        throw new NotImplementedException();
+        this.minutes = minutes;
     }
 
-    public static Duration FromString(object durationAsText)
+    public static Duration ofMinutes(int minutes)
     {
-        throw new NotImplementedException();
+        return new Duration(minutes);
+    }
+
+    public static Duration FromString(string durationAsText)
+    {
+        return new Duration(Int32.Parse(durationAsText));
     }
 
     public override string ToString()
     {
-        throw new NotImplementedException();
+        return this.minutes.ToString();
+    }
+
+    public override bool Equals(object? compareTo)
+    {
+        if (this.GetType().Equals(compareTo.GetType()))
+        {
+            Duration other = (Duration) compareTo;
+            
+            return this.minutes == other.minutes;
+        }
+
+        return false;
     }
 }
 
