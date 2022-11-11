@@ -22,6 +22,6 @@ public class PricingEngine
 {
     public Money calculatePrice(Duration duration, Money pricePerMinute)
     {
-        throw new NotImplementedException();
+        return Int32.Parse(duration.ToString()) * pricePerMinute;
     }
 }
