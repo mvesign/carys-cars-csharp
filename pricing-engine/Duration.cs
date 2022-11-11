@@ -1,3 +1,5 @@
+using NodaMoney;
+
 namespace pricing_engine;
 
 public class Duration
@@ -23,6 +25,11 @@ public class Duration
     {
         return new Duration(Int32.Parse(durationAsText));
     }
+    
+    public Money MultiplyByPricePerMinute(Money pricePerMinute)
+    {
+        return pricePerMinute * this.minutes;
+    } 
 
     public override string ToString()
     {

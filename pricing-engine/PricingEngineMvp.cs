@@ -6,6 +6,6 @@ public class PricingEngineMvp : PricingEngine
 {
     public Money CalculatePrice(Duration duration, Money pricePerMinute)
     {
-        return Int32.Parse(duration.ToString()) * pricePerMinute;
+        return duration.MultiplyByPricePerMinute(pricePerMinute);
     }
 }
