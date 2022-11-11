@@ -24,6 +24,9 @@ public class DurationTest
     }
 }
 
-public class SorryInvalidDurationProvided: Exception
+public class SorryInvalidDurationProvided : Exception
 {
+    public SorryInvalidDurationProvided(string message) : base(message)
+    {
+    }
 }

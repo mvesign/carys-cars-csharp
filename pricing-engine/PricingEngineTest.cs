@@ -29,6 +29,11 @@ public class Duration
 
     public static Duration ofMinutes(int minutes)
     {
+        if (minutes < 1)
+        {
+            throw new SorryInvalidDurationProvided("Sorry, Duration should be at least one minute.");
+        }
+        
         return new Duration(minutes);
     }
 
