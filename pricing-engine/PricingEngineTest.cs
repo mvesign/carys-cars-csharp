@@ -24,6 +24,16 @@ public class Duration
     {
         throw new NotImplementedException();
     }
+
+    public static Duration FromString(object durationAsText)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override string ToString()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 public class PricingEngine
