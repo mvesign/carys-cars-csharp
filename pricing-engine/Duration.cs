@@ -13,7 +13,7 @@ public class Duration
     {
         if (minutes < 1)
         {
-            throw new SorryInvalidDurationProvided("Sorry, Duration should be at least one minute.");
+            throw SorryInvalidDurationProvided.BecauseDurationWasLessThanOneMinute();
         }
 
         return new Duration(minutes);
@@ -45,5 +45,10 @@ public class SorryInvalidDurationProvided : Exception
 {
     public SorryInvalidDurationProvided(string message) : base(message)
     {
+    }
+
+    public static SorryInvalidDurationProvided BecauseDurationWasLessThanOneMinute()
+    {
+        return new SorryInvalidDurationProvided("Sorry, Duration should be at least one minute.");
     }
 }
