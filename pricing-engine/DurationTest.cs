@@ -23,10 +23,3 @@ public class DurationTest
         Assert.Equal(someDuration, Duration.FromString(someDuration.ToString()));
     }
 }
-
-public class SorryInvalidDurationProvided : Exception
-{
-    public SorryInvalidDurationProvided(string message) : base(message)
-    {
-    }
-}

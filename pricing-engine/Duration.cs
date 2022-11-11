@@ -15,7 +15,7 @@ public class Duration
         {
             throw new SorryInvalidDurationProvided("Sorry, Duration should be at least one minute.");
         }
-        
+
         return new Duration(minutes);
     }
 
@@ -33,11 +33,17 @@ public class Duration
     {
         if (this.GetType().Equals(compareTo.GetType()))
         {
-            Duration other = (Duration) compareTo;
-            
+            Duration other = (Duration)compareTo;
+
             return this.minutes == other.minutes;
         }
 
         return false;
+    }
+}
+public class SorryInvalidDurationProvided : Exception
+{
+    public SorryInvalidDurationProvided(string message) : base(message)
+    {
     }
 }
