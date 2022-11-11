@@ -11,7 +11,7 @@ public class PricingEngineTest
 
         var duration = Duration.ofMinutes(1);
         var pricePerMinute = Money.Euro(0.30);
-        var actual = pricingEngine.calculatePrice(duration, pricePerMinute);
+        var actual = pricingEngine.CalculatePrice(duration, pricePerMinute);
 
         var expected = pricePerMinute;
         Assert.Equal(expected, actual);
