@@ -21,6 +21,7 @@ public static class DurationTest
 
         // Assert
         action.Should().NotThrow();
+        action.Invoke().Minutes.Should().Be(minutes);
     }
 
     [Fact]
