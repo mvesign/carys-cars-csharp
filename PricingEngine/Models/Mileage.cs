@@ -14,7 +14,7 @@ public class Mileage
     public static Mileage OfKilometer(int kilometer)
     {
         if (kilometer < 1)
-            throw new InvalidInputException(" should Mileage be at least one kilometer.");
+            throw new InvalidInputException("Mileage should be at least one kilometer.");
 
         return new Mileage(kilometer);
     }
