@@ -1,4 +1,6 @@
+using System;
 using NodaMoney;
+using PricingEngine.Exceptions;
 using PricingEngine.Models;
 
 namespace PricingEngine;
@@ -27,5 +29,17 @@ public static class Calculator
         kilometersOverLimit = kilometersOverLimit < 0 ? 0 : kilometersOverLimit;
 
         return Price.PerUnit(pricePerKilometer).MultiplyWithUnits(kilometersOverLimit);
+    }
+
+    public static Money CalculatePackageOverHours(this int hours)
+    {
+        try
+        {
+            return Package.OfHours(hours).Price;
+        }
+        catch (InvalidInputException)
+        {
+            return Money.Euro(0);
+        }
     }
 }

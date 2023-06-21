@@ -147,4 +147,42 @@ public static class PricingEngineTest
     }
     
     #endregion
+
+    #region CalculatePackageOverHours
+
+    [Theory]
+    [InlineData(3, 19)]
+    [InlineData(6, 39)]
+    [InlineData(24, 59)]
+    [InlineData(72, 95)]
+    [InlineData(168, 209)]
+    public static void CalculatePackageOverHours_With_supported_hours(int hours, decimal expected)
+    {
+        // Arrange
+        var expectedPrice = Money.Euro(expected);
+
+        // Act
+        var actual = hours.CalculatePackageOverHours();
+    
+        // Assert
+        actual.Should().BeEquivalentTo(expectedPrice);
+    }
+
+    [Theory]
+    [InlineData(1)]
+    [InlineData(7)]
+    [InlineData(25)]
+    public static void CalculatePackageOverHours_With_unsupported_hours(int hours)
+    {
+        // Arrange
+        var expected = Money.Euro(0);
+
+        // Act
+        var actual = hours.CalculatePackageOverHours();
+
+        // Assert
+        actual.Should().BeEquivalentTo(expected);
+    }
+
+    #endregion
 }
