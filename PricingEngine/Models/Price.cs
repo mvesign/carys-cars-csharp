@@ -20,6 +20,6 @@ public class Price
         return new Price(pricePerUnit);
     }
 
-    public Money MultiplyPerUnits(int units) =>
+    public Money MultiplyWithUnits(int units) =>
         _pricePerUnit * units;
 }

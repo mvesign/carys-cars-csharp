@@ -89,4 +89,62 @@ public static class PricingEngineTest
     }
 
     #endregion
+
+    #region CalculatePriceOverMileage
+
+    [Theory]
+    [InlineData(251, 0.19)]
+    [InlineData(300, 0.19)]
+    public static void CalculatePriceOverMileage_With_over_limit_mileage(
+        int kilometers, decimal unitPrice
+    )
+    {
+        // Arrange
+        var mileage = Mileage.OfKilometer(kilometers);
+        var pricePerKilometer = Money.Euro(unitPrice);
+        var expected = pricePerKilometer * (mileage.Kilometer - Calculator.MaximumMileage);
+
+        // Act
+        var actual = pricePerKilometer.CalculatePriceOverMileage(mileage);
+
+        // Assert
+        actual.Should().BeEquivalentTo(expected);
+    }
+
+    [Theory]
+    [InlineData(0.19)]
+    public static void CalculatePriceOverMileage_With_zero_over_limit_mileage(decimal unitPrice)
+    {
+        // Arrange
+        var mileage = Mileage.OfKilometer(Calculator.MaximumMileage);
+        var pricePerKilometer = Money.Euro(unitPrice);
+        var expected = Money.Euro(0);
+
+        // Act
+        var actual = pricePerKilometer.CalculatePriceOverMileage(mileage);
+
+        // Assert
+        actual.Should().BeEquivalentTo(expected);
+    }
+
+    [Theory]
+    [InlineData(100, 0.19)]
+    [InlineData(200, 0.19)]
+    public static void CalculatePriceOverMileage_With_negative_over_limit_mileage(
+        int kilometers, decimal unitPrice
+    )
+    {
+        // Arrange
+        var mileage = Mileage.OfKilometer(kilometers);
+        var pricePerKilometer = Money.Euro(unitPrice);
+        var expected = Money.Euro(0);
+
+        // Act
+        var actual = pricePerKilometer.CalculatePriceOverMileage(mileage);
+
+        // Assert
+        actual.Should().BeEquivalentTo(expected);
+    }
+    
+    #endregion
 }

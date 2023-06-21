@@ -53,4 +53,23 @@ public static class PriceTests
     }
 
     #endregion
+
+    #region MultiplyWithUnits
+
+    [Theory]
+    [InlineData(1, 0.01)]
+    public static void MultiplyWithUnits_With_units(int units, decimal unitPrice)
+    {
+        // Arrange
+        var pricePerUnit = Money.Euro(unitPrice);
+        var expected = units * pricePerUnit;
+
+        // Act
+        var result = Price.PerUnit(pricePerUnit).MultiplyWithUnits(units);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    #endregion
 }
