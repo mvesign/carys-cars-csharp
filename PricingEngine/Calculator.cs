@@ -1,4 +1,3 @@
-using System;
 using NodaMoney;
 using PricingEngine.Exceptions;
 using PricingEngine.Models;
